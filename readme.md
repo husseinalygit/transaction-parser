@@ -3,7 +3,7 @@
 A comprehensive system for analyzing financial transactions using Natural Language Processing (NER), Classification, and Interactive Chat capabilities. The system processes SMS-style transaction messages and categorizes them while providing analytical insights.
 
 
-![System Overview](system_overview.png)
+![System Overview](system_overview_png.png)
 
 
 ## Features

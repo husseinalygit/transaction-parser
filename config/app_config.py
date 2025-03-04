@@ -5,13 +5,13 @@ load_dotenv()
 
 class AppConfig:
     # Server Configuration
-    SERVER_HOST = "localhost"
+    SERVER_HOST = "backend"
     SERVER_PORT = 5000
     
     # LLM Configuration
-    LLM_NAME = "qwen2.5-coder:7b"
-    OLLAMA_URL = "http://localhost:11434/api/generate"
-    OLLAMA_BASE_URL = "http://localhost:11434"
+    LLM_NAME = "qwen2.5-coder:1.5b"
+    OLLAMA_URL = "http://ollama:11434/api/generate"
+    OLLAMA_BASE_URL = "http://ollama:11434"
     # Data Storage
     DATA_PATH = os.path.join(os.path.dirname(__file__), "..", "data/")
     CSV_FILENAME = "app_data.csv"

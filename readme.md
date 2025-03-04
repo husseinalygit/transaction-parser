@@ -48,7 +48,36 @@ A comprehensive system for analyzing financial transactions using Natural Langua
 - Integration with Ollama LLM
 - DuckDuckGo search integration for store enrichment
 
-## Setup
+## Running with Docker Compose
+
+The easiest way to run the application is using Docker Compose:
+
+1. **Build and Start the Services**
+```bash
+docker compose build
+docker-compose up -d
+```
+
+2- Download Ollama model 
+```bash
+docker compose exec -it ollama ollama pull qwen2.5-coder:7b
+```
+3- Load ollama model in memeory, you can use /exit once the model is loaded.
+
+```bash
+docker compose exec -it ollama ollama run qwen2.5-coder:7b
+```
+
+4. **Access the Application**
+- Frontend: http://localhost:8501
+- Backend API: http://localhost:5000
+
+5. **Stop the Services**
+```bash
+docker-compose down
+```
+
+## Running Locally
 
 1. **Install Ollama**
    - Visit [Ollama's website](https://ollama.ai) to download and install Ollama for your operating system
@@ -56,9 +85,9 @@ A comprehensive system for analyzing financial transactions using Natural Langua
    ```bash
    ollama pull qwen2.5-coder:7b
    ```
-   Other model can also be used such as 
+   Other models can also be used such as mistral:7b, llama2:7b, codellama:7b, deepseek:8b, llama3.1, and llama3.2, but qwen2.5-coder:7b performed the best in my limited testing
 
-2. **Environment Setup**
+2. **Install Dependencies**
 ```bash
 pip install -r requirements.txt
 ```

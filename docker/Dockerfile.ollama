@@ -1,0 +1,13 @@
+FROM ollama/ollama:latest
+
+WORKDIR /app
+
+# ENV OLLAMA_MODEL=qwen2.5-coder:7b
+
+# COPY ./ollama_start  /start.sh
+
+# RUN chmod +x /start.sh
+
+EXPOSE 11434
+
+CMD ["ollama", "serve"] 

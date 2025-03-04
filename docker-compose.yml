@@ -1,0 +1,45 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.backend
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./data:/app/data
+    networks:
+      - genai-network
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/Dockerfile.frontend
+    ports:
+      - "8501:8501"
+    volumes:
+      - ./data:/app/data
+    depends_on:
+      - backend
+    networks:
+      - genai-network
+
+  ollama:
+    image: ollama/ollama:latest
+    container_name: backend-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ./data/models:/root/.ollama
+    networks:
+      - genai-network
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+
+networks:
+  genai-network:
+    driver: bridge

@@ -206,10 +206,10 @@ Transactions are stored in CSV format with the following fields:
 
 
 
-- [x] Containerize application:
-  - [x] Create Dockerfile for backend service
-  - [x] Create Dockerfile for frontend service
-  - [x] Set up Docker Compose for multi-container deployment
+- [x] ~~Containerize application~~ :
+  - [x] ~~Create Dockerfile for backend service~~
+  - [x] ~~Create Dockerfile for frontend service~~
+  - [x] ~~Set up Docker Compose for multi-container deployment~~
 
 - [ ] Add support for cloud-based LLM providers:
   - [ ] OpenAI GPT models integration

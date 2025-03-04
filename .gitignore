@@ -1,3 +1,4 @@
 /data/*
+!data/.gitkeep
 /results 
 system_overview.pptx

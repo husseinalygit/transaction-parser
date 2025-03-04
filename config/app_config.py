@@ -9,7 +9,7 @@ class AppConfig:
     SERVER_PORT = 5000
     
     # LLM Configuration
-    LLM_NAME = "qwen2.5-coder:1.5b"
+    LLM_NAME = "qwen2.5-coder:7b"
     OLLAMA_URL = "http://ollama:11434/api/generate"
     OLLAMA_BASE_URL = "http://ollama:11434"
     # Data Storage

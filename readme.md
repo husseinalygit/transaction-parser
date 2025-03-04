@@ -55,7 +55,7 @@ The easiest way to run the application is using Docker Compose:
 1. **Build and Start the Services**
 ```bash
 docker compose build
-docker-compose up -d
+docker compose up -d
 ```
 
 2- Download Ollama model 
@@ -76,6 +76,28 @@ docker compose exec -it ollama ollama run qwen2.5-coder:7b
 ```bash
 docker-compose down
 ```
+
+# Running ollama on Docker with CPU only 
+To run the application only with cpu uncomment the following secion in the docker compose 
+```docker compose
+  ollama:
+    image: ollama/ollama:latest
+    container_name: backend-ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ./data/models:/root/.ollama
+    networks:
+      - genai-network
+    # deploy:
+    # resources:
+    #    reservations:
+    #      devices:
+    #        - driver: nvidia
+    #          count: all
+    #          capabilities: [gpu] 
+```
+
 
 ## Running Locally
 
@@ -106,6 +128,8 @@ cd frontend
 streamlit run app.py
 ```
 
+3. **Update the configuration**
+The config file `config/app_config.py` contains configurations for running in Docker by default. To run locally, update the following configurations:
 
 4. **Configuration**
 The application can be configured through environment variables or the config file. Here are the main configuration options:
@@ -180,16 +204,18 @@ Transactions are stored in CSV format with the following fields:
 
 ## To Do
 
+
+
+- [x] Containerize application:
+  - [x] Create Dockerfile for backend service
+  - [x] Create Dockerfile for frontend service
+  - [x] Set up Docker Compose for multi-container deployment
+
 - [ ] Add support for cloud-based LLM providers:
   - [ ] OpenAI GPT models integration
   - [ ] Azure OpenAI integration
   - [ ] HuggingFace models integration
-
-- [ ] Containerize application:
-  - [ ] Create Dockerfile for backend service
-  - [ ] Create Dockerfile for frontend service
-  - [ ] Set up Docker Compose for multi-container deployment
-
+  
 - [ ] Develop custom ML models:
   - [ ] Train specialized NER model on financial transaction data
   - [ ] Create custom classification model for transaction categorization

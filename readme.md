@@ -58,7 +58,7 @@ docker compose build
 docker compose up -d
 ```
 
-2- Download Ollama model 
+2- Download Ollama model, make sure you use the same model name as stated in `config/app_config.py`. Default value is `qwen2.5-coder:7b`
 ```bash
 docker compose exec -it ollama ollama pull qwen2.5-coder:7b
 ```
@@ -215,7 +215,7 @@ Transactions are stored in CSV format with the following fields:
   - [ ] OpenAI GPT models integration
   - [ ] Azure OpenAI integration
   - [ ] HuggingFace models integration
-  
+
 - [ ] Develop custom ML models:
   - [ ] Train specialized NER model on financial transaction data
   - [ ] Create custom classification model for transaction categorization

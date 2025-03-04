@@ -50,7 +50,7 @@ A comprehensive system for analyzing financial transactions using Natural Langua
 
 ## Running with Docker Compose
 
-The easiest way to run the application is using Docker Compose:
+The easiest way to run the application is using Docker Compose. First, you need to install Docker or Docker Desktop from [here](https://docs.docker.com/desktop/). Once installed, follow these instructions:
 
 1. **Build and Start the Services**
 ```bash

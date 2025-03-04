@@ -78,7 +78,7 @@ docker-compose down
 ```
 
 # Running ollama on Docker with CPU only 
-To run the application only with cpu uncomment the following secion in the docker compose 
+To run the application only with cpu comment the following secion in the docker compose 
 ```docker compose
   ollama:
     image: ollama/ollama:latest

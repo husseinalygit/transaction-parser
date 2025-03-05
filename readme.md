@@ -50,23 +50,13 @@ A comprehensive system for analyzing financial transactions using Natural Langua
 
 ## Running with Docker Compose
 
-The easiest way to run the application is using Docker Compose. First, you need to install Docker or Docker Desktop from [here](https://docs.docker.com/desktop/). Once installed, move to this repo folder and follow these instructions:
+The easiest way to run the application is using Docker Compose. This section provides instructions for both GPU and CPU-only deployments.
 
-1. **Build and Start the Services**
-```bash
-docker compose build
-docker compose up -d
-```
+### Prerequisites
+- Install [Docker](https://docs.docker.com/desktop/) and Docker Compose
+- For GPU support: Install [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/install-guide.html)
 
-2- Download Ollama model, make sure you use the same model name as stated in `config/app_config.py`. Default value is `qwen2.5-coder:7b`
-```bash
-docker compose exec -it ollama ollama pull qwen2.5-coder:7b
-```
-3- Load ollama model in memeory, you can use /exit once the model is loaded.
-
-```bash
-docker compose exec -it ollama ollama run qwen2.5-coder:7b
-```
+### GPU Deployment (Default)
 
 4. **Access the Application**
 - Frontend: http://localhost:8501
@@ -77,8 +67,10 @@ docker compose exec -it ollama ollama run qwen2.5-coder:7b
 docker-compose down
 ```
 
-# Running ollama on Docker with CPU only 
-To run the application only with cpu comment the following secion in the docker compose 
+### Running ollama on Docker with CPU only 
+To run the application with CPU only, comment out the GPU-specific deployment section in the `docker-compose.yml` file (shown below). Then follow the previous deployment instructions as normal.
+
+Note: Running on CPU will be slower than GPU but requires no special hardware.
 ```docker compose
   ollama:
     image: ollama/ollama:latest

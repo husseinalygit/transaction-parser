@@ -58,6 +58,22 @@ The easiest way to run the application is using Docker Compose. This section pro
 
 ### GPU Deployment (Default)
 
+1. **Build and Start the Services**
+```bash
+docker compose build
+docker compose up -d
+```
+
+2- Download Ollama model, make sure you use the same model name as stated in `config/app_config.py`. Default value is `qwen2.5-coder:7b`
+```bash
+docker compose exec -it ollama ollama pull qwen2.5-coder:7b
+```
+3- Load ollama model in memeory, you can use /exit once the model is loaded.
+
+```bash
+docker compose exec -it ollama ollama run qwen2.5-coder:7b
+```
+
 4. **Access the Application**
 - Frontend: http://localhost:8501
 - Backend API: http://localhost:5000
